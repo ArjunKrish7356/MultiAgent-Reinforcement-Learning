@@ -23,21 +23,24 @@ model = GroqModel(
     'qwen/qwen3-32b', provider=GroqProvider(api_key=groq_key)
 )
 
+user_prompt = input("Enter your custom prompt (or press Enter to use default): ").strip()
 agent1_old_prompt = ''
-agent1_new_prompt = customer_support_prompt
-
-customer_support_agent = Agent(
-    model=model,
-    system_prompt=agent1_new_prompt,
-    output_type=str,
-)
+agent1_new_prompt = user_prompt if user_prompt else customer_support_prompt
 
 class EvaluatorOutput(BaseModel):
     improvement_instr: list[str] = Field("Improvement instructions from the agent")
     score: int = Field("Score between 1 to 100 about how well the agent has performed according to the metrics")
 
+# Ask for custom evaluation criteria
+custom_criteria = input("Enter additional evaluation criteria (or press Enter to use default): ").strip()
+
+# Build the evaluator prompt with optional custom criteria
+evaluator_system_prompt = evaluator_prompt
+if custom_criteria:
+    evaluator_system_prompt += f"\n\nAdditional Custom Criteria:\n{custom_criteria}"
+
 evaluator_agent = Agent(
-    system_prompt=evaluator_prompt,
+    system_prompt=evaluator_system_prompt,
     model=model,
     output_type=EvaluatorOutput
 )
@@ -54,11 +57,25 @@ rewriter_agent = Agent(
 
 scores = []
 
+# Ask user for number of RL cycles
+num_cycles = input("Enter number of RL cycles to run (or press Enter for default 5): ").strip()
+try:
+    num_cycles = int(num_cycles) if num_cycles else 5
+except ValueError:
+    num_cycles = 5
+    print("Invalid input, using default 5 cycles.")
+
 # This loop is the no of iterations of our whole system
-for i in range(5):
-    
+for i in range(num_cycles):
     log_file = Path("interactions.json")
     log_file.write_text("[]", encoding="utf-8")
+
+    # Make new instance of customer support agent to apply the new prompt changes
+    customer_support_agent = Agent(
+    model=model,
+    system_prompt=agent1_new_prompt,
+    output_type=str,
+    )
 
     # agent1 runs and collects chatlog from user
     for j in range(2):
@@ -88,7 +105,7 @@ for i in range(5):
     scores.append(agent2_response.output.score)
     if len(scores) > 1 and scores[-1] < scores[-2]:
         scores.pop()
-        print(f"backtracked because of lower score")
+        print(f"FAIL : backtracked because of lower score.")
         agent1_new_prompt = agent1_old_prompt
         continue
 
@@ -121,4 +138,8 @@ for i in range(5):
 
     existing.append(entry)
     json_file.write_text(json.dumps(existing, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(scores)
+    
+    if len(scores) >= 2:
+        print(f"SUCCESS: Score has been improved from {scores[-2]} to {scores[-1]}.")
+    else:
+        print(f"SUCCESS: Score is {scores[-1]}.")
