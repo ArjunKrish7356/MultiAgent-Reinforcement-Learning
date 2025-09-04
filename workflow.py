@@ -6,6 +6,7 @@ from pydantic_ai.models.groq import GroqModel
 from pydantic_ai.providers.groq import GroqProvider
 from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Tuple, Optional
+import streamlit as st
 
 from prompts import customer_support_prompt, evaluator_prompt, rewriter_prompt
 import json
@@ -28,6 +29,10 @@ def initialize_environment() -> Tuple[str, str]:
     dotenv.load_dotenv()
     groq_key = os.getenv("GROQ_KEY")
     logfire_token = os.getenv("LOGFIRE_TOKEN")
+
+    if not groq_key:
+        groq_key = st.secrets['GROQ_KEY']
+        logfire_token = st.secrets['LOGFIRE_TOKEN']
     
     if logfire_token:
         logfire.configure(token=logfire_token)
