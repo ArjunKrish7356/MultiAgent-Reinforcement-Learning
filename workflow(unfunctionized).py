@@ -23,6 +23,7 @@ model = GroqModel(
     'qwen/qwen3-32b', provider=GroqProvider(api_key=groq_key)
 )
 
+
 user_prompt = input("Enter your custom prompt (or press Enter to use default): ").strip()
 agent1_old_prompt = ''
 agent1_new_prompt = user_prompt if user_prompt else customer_support_prompt

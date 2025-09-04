@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "user_input": "hi",
+    "agent_output": "\n\nHello! How can I help you today?  \n\n**Summary:** The customer sent a greeting, and I asked how I could assist them."
+  },
+  {
+    "user_input": "okey",
+    "agent_output": "\n\nI'm here to help! How can I assist you today?"
+  },
+  {
+    "user_input": "hi",
+    "agent_output": "\n\nHow can I help you today?"
+  },
+  {
+    "user_input": "hi",
+    "agent_output": "\n\nHello! How can I help you today?  \n\n**Summary:** The customer said \"hi\" and was greeted with an offer for assistance."
+  },
+  {
+    "user_input": "why am I sad ?",
+    "agent_output": "\n\nI'm sorry you're feeling this way. It sounds like you're experiencing some emotional distress. How can I support you today?  \nYou shared that you're feeling sad and asked why. I acknowledged your feelings and offered support."
+  },
+  {
+    "user_input": "hi",
+    "agent_output": "\n\nHow can I help you today?  \nThe customer greeted with \"hi\" and was asked how they can be assisted."
+  },
+  {
+    "user_input": "how are you?",
+    "agent_output": "\n\nI'm doing well, thank you! The customer asked how I am, so I provided a friendly and positive response."
+  },
+  {
+    "user_input": "ok",
+    "agent_output": "\n\nHello! 😊 How can I help you today? Whether you have a question, need guidance, or just want to chat, I'm here for you!"
+  },
+  {
+    "user_input": "Thanks for helping me",
+    "agent_output": "\n\nYou're welcome! 😊 If you have any more questions or need help with anything else—big or small—I'm here for you. Just let me know how I can assist further!"
+  },
+  {
+    "user_input": "hi",
+    "agent_output": "\n\nHow can I help you today?"
+  },
+  {
+    "user_input": "why ?",
+    "agent_output": "\n\nThe customer asked \"why?\" in response to the question \"How can I help you today?\" and did not provide further clarification."
+  },
+  {
+    "user_input": "So",
+    "agent_output": "\n\nIt seems like your message might be incomplete. How can I assist you today? Feel free to share any questions or concerns!"
+  },
+  {
+    "user_input": "Thanks for helping",
+    "agent_output": "\n\nYou're welcome! If you have any questions or need further assistance, feel free to ask. 😊"
+  },
+  {
+    "user_input": "hi",
+    "agent_output": "\n\nHow can I help you today?"
+  },
+  {
+    "user_input": "hi",
+    "agent_output": "\n\nHow can I help you today?  \n\nThe customer said \"hi,\" and I greeted them by asking how I can assist."
+  },
+  {
+    "user_input": "hi",
+    "agent_output": "\n\nHello! How can I help you today?"
+  },
+  {
+    "user_input": "Thanks",
+    "agent_output": "\n\nYou're welcome! If you need any further assistance, feel free to ask. 😊"
+  },
+  {
+    "user_input": "Thank you very much you are a life saver for solving my wifi issues.",
+    "agent_output": "\n\nYou're very welcome! I'm thrilled we sorted out your Wi-Fi issues—I'm always here if you need help with anything else. 😊 Have a great day!"
+  },
+  {
+    "user_input": "Thanks",
+    "agent_output": "\n\nYou're welcome! If you need any further assistance, feel free to ask. Have a great day!"
+  },
+  {
+    "user_input": "Thanks for solving my wifi issues",
+    "agent_output": "\n\nYou're welcome! I'm glad I could help. If you need anything else, feel free to ask. 😊"
+  },
+  {
+    "user_input": "hi",
+    "agent_output": "\n\nHello! How can I help you today?"
+  }
+]
