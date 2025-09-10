@@ -20,7 +20,7 @@ def render_agent_setup_page():
     use_default_prompt = st.checkbox("Use default customer support prompt", value=False)
     
     # Information about the system prompt
-    st.info("The system prompt defines how your agent behaves. The RL training will iteratively improve this prompt based on performance feedback.")
+    st.info("The system prompt defines how your agent behaves. The training will iteratively improve this prompt based on performance feedback.")
             
     if use_default_prompt:
         # Display default prompt
@@ -32,7 +32,7 @@ def render_agent_setup_page():
             "Custom system prompt",
             value=customer_support_prompt,
             height=200,
-            help="Enter your custom system prompt here. This will be the starting point for RL optimization."
+            help="Enter your custom system prompt here. This will be the starting point for prompt optimization."
         )
     
     # Store the initial prompt in session state

@@ -23,7 +23,7 @@ def main():
     """
     # Page configuration
     st.set_page_config(
-        page_title="RL Agent Training Interface",
+        page_title="Agent Training Interface",
         page_icon="🤖",
         layout="wide"
     )
@@ -37,8 +37,8 @@ def main():
         st.session_state.user_queries = {}
 
     # Main title
-    st.title("🤖 Multi-Agent Reinforcement Learning Training")
-    st.markdown("Train your customer support agent using reinforcement learning!")
+    st.title("🤖 Customer Support Agent Prompt Improvement System")
+    st.markdown("Easily train and optimize your customer support agent.")
 
     # Environment check
     try:
@@ -53,7 +53,6 @@ def main():
         return
 
     # Render all pages in sequence
-    initialize_interaction_log()
     render_parameter_page()
     render_agent_setup_page()
     render_training_page()

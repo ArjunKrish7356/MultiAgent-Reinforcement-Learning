@@ -34,7 +34,7 @@ def render_training_page():
 def run_interactive_cycle():
     """Handle the interactive training cycle UI."""
     if 'interactive_training_state' not in st.session_state:
-        return st.error("RL parameters have not been set yet. Please configure the training parameters above and click the Confirm Changes button to proceed.")
+        return st.error("Parameters have not been set yet. Please configure the training parameters above and click the Confirm Changes button to proceed.")
     
     state = st.session_state.interactive_training_state
     st.subheader(f"🔄 Cycle {state['current_cycle']}/{state['total_cycles']}")
@@ -165,6 +165,7 @@ def complete_cycle_and_evaluate():
                 
                 # Store results
                 new_score = evaluation.score
+                print(new_score)
                 new_prompt = rewrite_response.output.new_prompt
                 improvements = rewrite_response.output.improvements
                 

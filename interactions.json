@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "user_input": "hi",
+    "agent_output": "\n\nHello! Thank you for reaching out. I'm here to help. Can you describe your issue or need?"
+  },
+  {
+    "user_input": "Thanks for solving  wifi issues.",
+    "agent_output": "\n\nHello! Thank you for reaching out. I'm here to help. Can you describe your issue or need?"
+  }
+]

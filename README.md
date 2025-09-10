@@ -1,44 +1,65 @@
-# MultiAgent-Reinforcement-Learning
+# Adaptix
 
-This repository implements a multi-agent system designed for iterative improvement of support agent prompts using reinforcement learning (RL). The system features three primary agents that work together in a loop to continually refine and optimize the support agent's behavior.
+🚀 **Live Demo:** https://adaptix.streamlit.app
 
-## System Architecture
+## What is Adaptix?
 
-### Agents
+Adaptix is a smart system that helps make customer support agents better by automatically improving their responses. It uses three AI agents working together to train and optimize customer support conversations. The system learns from each interaction and gets smarter over time, making your support agents more helpful and effective.
 
-1. **Support Agent**
-   - Engages in conversations with technicians.
-   - Provides support and answers queries based on its current system prompt.
+## How to Use It
 
-2. **Fault Detection & Scoring Agent**
-   - Monitors the conversation between the Support Agent and the technician.
-   - Identifies faults, issues, or areas for improvement in the conversation.
-   - Assigns a score to the interaction, highlighting specific faults and suggesting improvements.
+### 1. Install
+Clone the project to your computer:
+```bash
+git clone https://github.com/ArjunKrish7356/MultiAgent-Reinforcement-Learning.git
+cd MultiAgent-Reinforcement-Learning
+```
 
-3. **Prompt Rewriting Agent**
-   - Receives improvement instructions from the Fault Detection & Scoring Agent.
-   - Updates the system prompt for the Support Agent based on these instructions.
-   - Ensures that prompt changes are aimed at improving overall support quality.
+### 2. Run
+Start the application:
+```bash
+streamlit run main.py
+```
 
-### Workflow Loop
+Open your browser and go to the URL shown in your terminal (usually `http://localhost:8501`).
 
-The three agents operate in a continuous loop:
+## How It Works
 
-1. The Support Agent interacts with the technician.
-2. The Fault Detection & Scoring Agent analyzes the conversation and provides feedback.
-3. The Prompt Rewriting Agent updates the Support Agent's prompt.
-4. The process repeats, allowing for ongoing improvement.
+Adaptix uses three smart agents that work together in a cycle:
 
-## Next Phase: Reinforcement Learning
+1. **Support Agent** - Talks to customers and answers their questions
+2. **Evaluator Agent** - Watches the conversation and gives it a score (1-100)
+3. **Rewriter Agent** - Makes the support agent better based on the feedback
 
-In future development, reinforcement learning will be introduced to:
+The system keeps repeating this process, getting better each time. If a change makes things worse, it automatically goes back to the previous version.
 
-- Make the Prompt Rewriting Agent more robust.
-- Allow the system to backtrack if changes to the prompt do not lead to improved support performance.
-- Optimize prompt updates based on reward signals from conversation scores.
+## File Structure
 
-## Getting Started
+- **main.py** - The main file that brings all the UI pages together and runs the app
+- **functions.py** - Contains all the core functions for creating agents and running training
+- **prompts.py** - Stores the different prompts used by each agent
+- **ui/** - Folder containing all the user interface pages:
+  - **parameter_page.py** - Page for setting training parameters
+  - **agent_setup_page.py** - Page for configuring the agent's behavior
+  - **training_page.py** - Page where the actual training happens
+  - **results_page.py** - Page showing training results and improvements
+  - **test_agent_page.py** - Page for testing your trained agent
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/ArjunKrish7356/MultiAgent-Reinforcement-Learning.git
+## How to Contribute
+
+We welcome contributions! Here's how you can help:
+
+1. Fork this repository
+2. Create a new branch for your feature
+3. Make your changes and test them
+4. Submit a pull request with a clear description
+5. Make sure your code is simple and well-commented
+
+## Issues and Suggestions
+
+If you find bugs or have ideas for improvements, please open an issue on GitHub. We'd love to hear from you!
+
+---
+
+**Thank you for using Adaptix!**  
+*Made with ❤️ by Arjun*
